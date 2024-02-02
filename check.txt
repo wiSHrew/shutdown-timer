@@ -1,0 +1,5 @@
+check if shuts down after 2 hours: True
+check if can be used right after 2 hours: False
+check if can be used after 24 hours: True
+check if password works after 2 hours then used right away: True
+
