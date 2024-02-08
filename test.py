@@ -1,13 +1,12 @@
-import traceback
+import win32api
+import win32con
 
-try:
-    # Your code that may raise an exception goes here
-    time_now = [1, 2, 3, 4]  # Example code that raises a TypeError
-    time_now[3] = time_now + 24  # This will raise a TypeError
-except Exception as e:
-    # Open a file in write mode ('w')
-    with open('error_logs.txt', 'a') as file:
-        # Use the traceback.format_exc() function to get the full traceback as a string
-        traceback_str = traceback.format_exc() + '\n'
-        # Write the full traceback to the file
-        file.write(traceback_str)
+def on_shutdown(event):
+    with open("test.txt", 'w') as file:
+        file.write("shutdown event detected")
+
+
+# Register the callback function for shutdown event
+win32api.SetConsoleCtrlHandler(on_shutdown, True)
+
+input("tf bitch")
